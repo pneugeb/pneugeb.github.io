@@ -21,7 +21,7 @@ Easy policies. And when I say easy I mean easy; maybe up to 10 rules for the who
 
 One large Problem that remains is who are the Judges, who appoints them and how does the network protect itself against corrupt Judges. I propose a multi-layer Judge system as sketched out below.
 
-<img src="img/twitter_judge_layers.png" alt="title">
+<img src="/img/twitter_judge_layers.png" alt="title">
 
 The way the system works is that 1) every judge has to stake a rather substantial amount of twt to become a judge (with every layer/level judges having to stake substantially more than his predecessor), this is the only necessary prerequisite to become a judge and 2) there is an appeal process; if you think the judge handling your case ruled wrongly against you, you can stake a higher amount and appeal to a higher layer judge to look at the case. If that L2 judge decides in your favour and against the L1 judges ruling, the L1 Judge would lose his stake, thus promoting honest behavior. (It is still to be determined how high these stake amount need to be for the system to work best and not promote gambling while being accessible for people with lower twt balances.) If a L2 Judge overrules a L1 Judge, both the L1 Judge and the original prosecutor P can appeal again to a higher Layer Judge (in this case L3) to look at the issue.
 
