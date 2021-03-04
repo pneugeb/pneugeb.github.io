@@ -11,17 +11,17 @@ When I will be referring to Twitter in this post I will also refer to a decentra
 
 At a very abstract level, a Twitter is not much different form a democratic State; you have a bunch of parties with different motives and goals that exist in a given system which they have influence upon and that needs moderation and enforcement of rules to work properly. Because of these similarities I propose a system for content moderation that is very close to the judicial system of a state. In a traditional system (state) it's "users" stake personal freedom and wealth, but of course you can't do that in blockchain land, so we're going to use twt tokens.
 
-###Policy (enforcement)
+### Policy (enforcement)
 
 Easy policies. And when I say easy I mean easy; maybe up to 10 rules for the whole platform on how to behave, mostly common sense stuff (e.g. no death threads; be nice; etc.). The goal here is that literally everybody who uses the platform can understand all its rules and knows when he/she violates them. Here we have an advantage of decentralized platform, the policies are made by the people for other people to read not by lawyers for other lawyers.
 
  Have a prosecutor, defender & judge system for policy violation: The process is as follows 1) prosecutor P sees a post by Defender D he thinks violates Twitters rules. He reports the post and stakes 100twt to back his report. 2) D gets a message his post has been flagged and can now a) also stake 100twt and go to court over if it's a violation or b) accept the report, delete the post and get a small fine (and P gets a portion of that fine as a reward). 3) If he does oppose the report and stakes his 100twt the case gets send to a judge who then decides. The winner gets >50% of the combined stake pool, with fractions going to the judge and maybe a network handling fee. This punishes wrong behavior and while also discouraging filing reports for nothing.
  
-###The Judge System
+### The Judge System
 
 One large Problem that remains is who are the Judges, who appoints them and how does the network protect itself against corrupt Judges. I propose a multi-layer Judge system as sketched out below.
 
-<img src="../_img/twitter_judge_layers.png" alt="title">
+<img src="img/twitter_judge_layers.png" alt="title">
 
 The way the system works is that 1) every judge has to stake a rather substantial amount of twt to become a judge (with every layer/level judges having to stake substantially more than his predecessor), this is the only necessary prerequisite to become a judge and 2) there is an appeal process; if you think the judge handling your case ruled wrongly against you, you can stake a higher amount and appeal to a higher layer judge to look at the case. If that L2 judge decides in your favour and against the L1 judges ruling, the L1 Judge would lose his stake, thus promoting honest behavior. (It is still to be determined how high these stake amount need to be for the system to work best and not promote gambling while being accessible for people with lower twt balances.) If a L2 Judge overrules a L1 Judge, both the L1 Judge and the original prosecutor P can appeal again to a higher Layer Judge (in this case L3) to look at the issue.
 
