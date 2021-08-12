@@ -50,7 +50,7 @@ select option {
     display: block;
 }
 body {
-    font-family: 'Public Sans', sans-serif;
+    font-family: Lato;
     background-color: #f8f8f8;
     font-size: 14.5px;
     color: #333;
