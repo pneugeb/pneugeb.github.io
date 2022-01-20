@@ -51,7 +51,7 @@ select option {
 }
 body {
     font-family: Lato;
-    background-color: #f8f8f8;
+    background-color: #fff;
     font-size: 14.5px;
     color: #333;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
@@ -62,7 +62,7 @@ footer{
 p {
     color: #222;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 a.top-link {
     color: #101010;
