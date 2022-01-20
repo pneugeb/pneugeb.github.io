@@ -3,6 +3,7 @@ layout: post
 title: "On Network effects of Blockchains and EVM compatibility"
 description: "Should you make your chain EVM compatible or not?"
 category: blockchain
+hidden: true
 comments: false
 ---
 
