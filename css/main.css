@@ -23,6 +23,7 @@ address, blockquote, dl, fieldset, h1, h2, h3, h4, h5, h6, label, ol, p, pre, ul
 }
 ol, ul{
     margin-left: 1em !important;
+	line-height: 1.5;
 }
 fieldset {
     padding: .5em;
