@@ -1,9 +1,9 @@
 <!--<p style="margin-bottom: 8px;" class="center">Sort by</p>-->
       <ul class="center nav">
         <!--Change the  URL here if working on an absolute domain-->
-        <li><a class="current-site" href="{{ site.url }}">Latest</a></li>
-        <li><a href="{{ site.url }}/blockchain">Blockchain</a></li>
-        <li><a href="{{ site.url }}/psychology">Psychology</a></li>
-        <li><a href="{{ site.url }}/about">About</a></li>
+        <li><a {% if page.title == "Latest" %}class="current-site"{% endif %} href="{{ site.url }}">Latest</a></li>
+        <li><a {% if page.title == "Blockchain" %}class="current-site"{% endif %} href="{{ site.url }}/blockchain">Blockchain</a></li>
+        <li><a {% if page.title == "Psychology" %}class="current-site"{% endif %} href="{{ site.url }}/psychology">Psychology</a></li>
+        <li><a {% if page.title == "About" %}class="current-site"{% endif %} href="{{ site.url }}/about">About</a></li>
         <!--<li><a href="{{ site.url }}/feed.xml">RSS</a></li>-->
       </ul>

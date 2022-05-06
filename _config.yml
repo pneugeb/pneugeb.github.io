@@ -21,8 +21,8 @@ owner:
   name: Peter Neugebauer
   email: #"emai@ddd.de"
   # Social networking links used in footer. Update and remove as you like.
-  twitter: PeterNeugeb
-  github: #https://github.com/pneugeb
+  twitter: #tweetr
+  github: https://github.com/pneugeb
   stackexchange:
   linkedin: 
   # For Google Authorship https://plus.google.com/authorship

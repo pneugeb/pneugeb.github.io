@@ -29,7 +29,7 @@ This process can of course not continue infinitely, so there is a supreme court 
 
 Let's look at an example to help understand the system:
 
-P comes across a post by D stating "Jacks dead if I meet him". He flags the post as a violation against the no death threads policy and stakes 100twt. D opposes the flag, and he also stakes 100twt, claiming it's not a violation of the policy. The case gets send to JL1. JL1 decides in P's favour and the trust, containing the 200twt, is to be split 70% to P, 20% to JL1 and 10% for the network treasury. D can now accept the judges ruling or stake 400 for a L2 judge to look at it, which he does. JL2 also decides in P's favour and now the trust (containing 600twt) is split 50% for P, 15% for JL1, 25% for JL2 and 10% for the network. This time D accepts the ruling and the twt is paid out.
+P comes across a post by D stating "I'm literally going to kill Jack". He flags the post as a violation against the no death threads policy and stakes 100twt. D opposes the flag, and he also stakes 100twt, claiming it's not a violation of the policy. The case gets send to JL1. JL1 decides in P's favour and the trust, containing the 200twt, is to be split 70% to P, 20% to JL1 and 10% for the network treasury. D can now accept the judges ruling or stake 400 for a L2 judge to look at it, which he does. JL2 also decides in P's favour and now the trust (containing 600twt) is split 50% for P, 15% for JL1, 25% for JL2 and 10% for the network. This time D accepts the ruling and the twt is paid out.
 
 The percentages in the example are also just exemplary. What is important however is that JL2 gets paid more than JL1, as he has a higher stake in the network.
 
