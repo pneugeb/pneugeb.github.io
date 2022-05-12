@@ -8,6 +8,12 @@ layout: default
 {{ content }}
 </div>
 
+<script type="text/javascript"  >
+    document.querySelectorAll('.post a')
+      .forEach(function(elem) {
+        elem.setAttribute('target', '_blank');
+      })
+</script>
 {% if site.disqus_shortname %}
 {% include disqus_comments.html %}
 {% endif %}
