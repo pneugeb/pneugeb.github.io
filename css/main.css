@@ -53,6 +53,12 @@ select option {
 .clearfix {
     display: block;
 }
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/lato/Lato-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 body {
     font-family: Lato;
     background-color: #fff;
@@ -61,7 +67,7 @@ body {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
 }
 footer{
-
+    margin-bottom: 10%;
 }
 p {
     color: #222;

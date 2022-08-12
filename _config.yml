@@ -22,11 +22,10 @@ owner:
   email: #"emai@ddd.de"
   # Social networking links used in footer. Update and remove as you like.
   twitter: #tweetr
-  github: https://github.com/pneugeb
+  github: 
   stackexchange:
   linkedin: 
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: #footer
