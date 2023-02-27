@@ -1,4 +1,4 @@
-name: Peter Neugebauer's Website
+name: Peter Neugebauer's website
 description: >
     Peter Neugebauer's website
 about: >
@@ -9,14 +9,10 @@ url: https://peterneugebauer.com
 markdown: kramdown
 highlighter: rouge
 
-plugins: ['jekyll-paginate', 'jekyll-gist', 'jekyll-feed', 'jekyll-seo-tag']
-
-paginate: 10
+plugins: ['jekyll-seo-tag']
 
 logo:
-disqus_shortname:
 
-rtl: false
 owner:
   name: Peter Neugebauer
   email: #"emai@ddd.de"

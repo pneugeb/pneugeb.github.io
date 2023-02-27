@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Decentralized content moderation system for Twitter"
+title: "Another post on the behaviour of humans"
 description: "Proposal for a decentralized content moderation system for social media"
-category: blockchain
+category: psychology
 ---
 In this post I will try to lay out a proposal for a decentralized content moderation system for twitter, but it would work for any social media platform. I'm just using Twitter as an example here because I like it best.
 
@@ -11,6 +11,18 @@ When I will be referring to Twitter in this post I will also refer to a decentra
 At a very abstract level, a Twitter is not much different form a democratic State; you have a bunch of parties with different motives and goals that exist in a given system which they have influence upon and that needs moderation and enforcement of rules to work properly. Because of these similarities I propose a system for content moderation that is very close to the judicial system of a state. In a traditional system (state) it's "users" stake personal freedom and wealth, but of course you can't do that in blockchain land, so we're going to use twt tokens.
 
 ### Policy (enforcement)
+
+# 1
+
+## 2
+
+### 3
+
+#### 4
+
+##### 5
+
+###### 6
 
 Easy policies. And when I say easy I mean easy; maybe up to 10 rules for the whole platform on how to behave, mostly common sense stuff (e.g. no death threads; be nice; etc.). The goal here is that literally everybody who uses the platform can understand all its rules and knows when he/she violates them. Here we have an advantage of decentralized platform, the policies are made by the people for other people to read not by lawyers for other lawyers.
 

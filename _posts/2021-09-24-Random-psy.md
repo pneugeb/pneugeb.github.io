@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "On Network effects of Blockchains and EVM compatibility"
+title: "Random placeholder post in psychology"
 description: "Should you make your chain EVM compatible or not?"
-category: blockchain
+category: psychology
 ---
 
 ### Update: The author doesn't agree with everything in this post anymore but is too lazy to update it
