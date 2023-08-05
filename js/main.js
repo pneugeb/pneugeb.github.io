@@ -1,7 +1,7 @@
 
 /* Update date & time */
 
-function refreshTime() {
+/* function refreshTime() {
   var timeString = new Date().toLocaleTimeString();
   document.getElementById("time").textContent = timeString;
 }
@@ -23,7 +23,7 @@ function twoDigits(num) {
 }
 
 refreshDate();
-setInterval(refreshDate, 60000);
+setInterval(refreshDate, 60000); */
 
 
 /* dark & light mode */

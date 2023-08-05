@@ -449,6 +449,7 @@ template {
 
 picture,img {
   display: block;
+  width: 100%;
 }
 
 html,body {
@@ -541,7 +542,7 @@ a:hover, .about:hover, .list-category:hover, .sort-by:hover, .theme-toggle:hover
 }
 
 .post {
-  font-family: Lato;
+  /* font-family: Lato; */
   font-display: auto;
   font-size: var(--fs-post);
   line-height: var(--lh-post);
@@ -549,14 +550,15 @@ a:hover, .about:hover, .list-category:hover, .sort-by:hover, .theme-toggle:hover
   background-color: var(--color-bg);
   max-width: 758px;
   margin: auto;
+  margin-bottom: 2rem !important;
 }
 
 .post h1, .post h2 {
   margin-top: 2em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
   font-weight: 600;
   padding-bottom: 0.3em;
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
 }
 
 .post h1 {
@@ -579,3 +581,10 @@ a:hover, .about:hover, .list-category:hover, .sort-by:hover, .theme-toggle:hover
   margin-block-end: 1em;
 }
 
+.post a {
+  text-decoration: underline;
+}
+
+.post-date {
+  margin-bottom: 1em;
+}

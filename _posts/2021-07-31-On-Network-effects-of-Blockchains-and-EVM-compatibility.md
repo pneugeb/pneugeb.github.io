@@ -5,7 +5,7 @@ description: "Should you make your chain EVM compatible or not?"
 category: blockchain
 ---
 
-### Update: The author doesn't agree with everything in this post anymore but is too lazy to update it
+**Update: The author doesn't agree with everything in this post anymore but is too lazy to update it**
 
 Every new Blockchain or crypto-ecosystem strives to grow its user base to increase its value, resilience and longevity. This has been an incredibly difficult task that only few have succeeded in (BTC, ETH), many have tried and failed (IOTA, NEO, EOS, ...) and many are trying (ADA, ICP, BSC). The reason for this is obvious, establish yourself as a widely used and time tested L1 and a high market cap valuation is sure to follow. Let's try to look at why some projects have succeeded while many have failed.
 

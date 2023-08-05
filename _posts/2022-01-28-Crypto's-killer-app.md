@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Crypto's killer app"
+title: "Crypto's 'killer app'"
 description: "Exploring the idea of killer apps in crypto"
 category: blockchain
 ---
+
 When I wrote my blog post “On network effects of Blockchains and EVM interoperability” I proposed that it was extremely hard for a new Blockchain to catch on. While I didn’t write it, I thought that all current alternative L1s would have problems staying relevant for 2+ years, or until ETH2 finally launches and fees go down. That’s what I originally thought their use case was: lower fees and maybe faster transaction times. I could not have been more wrong. Solana and Avalanche ([and maybe BSC?](https://github.com/binance-chain/bsc/issues/553)) are here to stay. Where did I go wrong? Is multichain here to stay and was multichain inevitable? I will look at these questions from the perspective of what I call crypto’s killer app.
 
 ### A lil history

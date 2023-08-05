@@ -4,6 +4,7 @@ title: "Decentralized content moderation system for Twitter"
 description: "Proposal for a decentralized content moderation system for social media"
 category: blockchain
 ---
+
 In this post I will try to lay out a proposal for a decentralized content moderation system for twitter, but it would work for any social media platform. I'm just using Twitter as an example here because I like it best.
 
 When I will be referring to Twitter in this post I will also refer to a decentralized version of Twitter with its own native token, as it's very hard to do a decentralized content moderation system it in a centralized platform, as you need a form of collateral (in this case twt tokens).
