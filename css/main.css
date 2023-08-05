@@ -486,6 +486,10 @@ main {
   opacity: 1;
 }
 
+.datetime {
+  display: grid;
+}
+
 .theme-toggle {
   color: var(--color-text);
   background-color: var(--color-bg);
