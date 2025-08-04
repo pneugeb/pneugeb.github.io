@@ -2,6 +2,23 @@
 <html>
 <head>
   {% include head.html %}
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        macros: {
+          bra: ["\\langle #1\\rvert", 1],
+          ket: ["\\lvert #1\\rangle", 1],
+          braket: ["\\langle #1 \\rvert #2 \\rangle", 2],
+          expect: ["\\langle #1 \\rangle", 1]
+        }
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
 </head>
 <body>
   <main>
@@ -10,5 +27,8 @@
     {% include footer.html %}
   </main>
   <script src="/js/main.js"></script>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </body>
 </html>
