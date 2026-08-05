@@ -19,7 +19,7 @@ In my last post, when I talked about the network effects of blockchains, I talke
 
 ## The rise of alt-L1s
 
-If we accept that making money money is *the* killer app we can see how this ties into the rise of alt-L1s. Newcomers also want to “be early” to projects and make big bucks so they invest in smaller and more risky coins or project. This is the whole reason BSC has the amount of users it does, people go there to buy the latest dog-money or ponzi coin. What BSC definitly helped was lower fees compared to eth, investing $200 isn’t fun when transaction fess are $60.
+If we accept that making money money is *the* killer app we can see how this ties into the rise of alt-L1s. Newcomers also want to “be early” to projects and make big bucks so they invest in smaller and more risky coins or project. This is the whole reason BSC has the amount of users it does, people go there to buy the latest dog-money or ponzi coin. What BSC definitly helped was lower fees compared to eth, investing \\$200 isn’t fun when transaction fess are \\$60.
 
 ### Do you want some VC money?
 
