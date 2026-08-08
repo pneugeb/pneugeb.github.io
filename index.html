@@ -1,25 +1,59 @@
 ---
 layout: default
 title: Home
+description: "Personal blog by Peter Neugebauer."
 ---
 
-<div class="list-item hidden" id="sort-category">
-  <span class="sort-by" id="sort-by"></span>
-</div>
+<section class="home-shell" aria-label="Peter Neugebauer's Blog">
+  <header class="site-nav">
+    <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="Peter Neugebauer, home">
+      <span class="wordmark-mark" aria-hidden="true">PN</span>
+      <span>Peter Neugebauer</span>
+    </a>
 
-{% for post in site.posts %}
-<div class="list-item">
-  <span class="post-date">{{ post.date | date_to_string }}</span>
-  <a href="{{site.url}}{{post.url}}">{{ post.title }}</a>
-  <div class="list-category">{{ post.category }}</div>
-</div>
-{% endfor %}
+    {% include theme-toggle.html %}
+  </header>
 
-<div class="about-div">
-  <div class="about">about</div>
-  <div class="about-text">
-    <p>Website where I post my thoughts on things. Don't expect anyone to read this tbh.</p>
+  <div class="home-masthead">
+    <h1>Peter Neugebauer&rsquo;s Blog</h1>
   </div>
-</div>
 
-<script src="/js/index.js"></script>
+  <div class="home-grid">
+    <section class="essay-index" aria-labelledby="writing-title">
+      <header class="essay-index-heading">
+        <div>
+          <p class="essay-kicker">Personal archive</p>
+          <h2 id="writing-title">Writing</h2>
+        </div>
+        <span>2021&ndash;now</span>
+      </header>
+
+      <ol class="essay-list">
+        {% for post in site.posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">
+              <time class="essay-date" datetime="{{ post.date | date_to_xmlschema }}">
+                <span>{{ post.date | date: "%b %d" }}</span>
+                <span>{{ post.date | date: "%Y" }}</span>
+              </time>
+              <span class="essay-copy">
+                <span class="essay-title">{{ post.title }}</span>
+                {% if post.description %}<span class="essay-description">{{ post.description }}</span>{% endif %}
+                <span class="essay-meta">
+                  <span>{{ post.category }}</span>
+                  <span>Essay</span>
+                </span>
+              </span>
+              <span class="essay-arrow" aria-hidden="true">&nearr;</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  </div>
+
+  <footer class="home-footer">
+    <span>&copy; {{ site.time | date: '%Y' }} Peter Neugebauer</span>
+    <span>2021&ndash;now</span>
+  </footer>
+</section>

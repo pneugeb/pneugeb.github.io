@@ -1,594 +1,1130 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/spacemono/SpaceMono-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
-/* Document
-   ========================================================================== */
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/spacemono/SpaceMono-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/lato/Lato-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/lato/Lato-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/lato/Lato-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --night: #06070a;
+  --night-soft: #0a0c11;
+  --paper: #f4efe8;
+  --paper-dim: #c2c0bd;
+  --paper-faint: #8e9199;
+  --coral: #ff644f;
+  --coral-soft: #ff8b79;
+  --blue: #82a4ff;
+  --line: rgba(244, 239, 232, 0.18);
+  --line-strong: rgba(244, 239, 232, 0.34);
+  --display: Georgia, "Times New Roman", serif;
+  --sans: "Lato", Arial, sans-serif;
+  --mono: "Space Mono", Consolas, monospace;
+  --page-gutter: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --night: #ffffff;
+  --night-soft: #e7e2d9;
+  --paper: #17181d;
+  --paper-dim: #484a52;
+  --paper-faint: #74757c;
+  --coral: #007078;
+  --coral-soft: #087d82;
+  --blue: #956c00;
+  --line: rgba(23, 24, 29, 0.15);
+  --line-strong: rgba(23, 24, 29, 0.28);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  background: var(--night);
 }
-  
-/* Sections
-    ========================================================================== */
-
-/**
-  * Remove the margin in all browsers.
-  */
 
 body {
+  position: relative;
+  min-width: 320px;
+  min-height: 100%;
   margin: 0;
+  isolation: isolate;
+  background: var(--night);
+  color: var(--paper);
+  font-family: var(--sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/**
-  * Render the `main` element consistently in IE.
-  */
-
-main {
-  display: block;
+body::before,
+body::after {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  content: "";
+  pointer-events: none;
 }
 
-/**
-  * Correct the font size and margin on `h1` elements within `section` and
-  * `article` contexts in Chrome, Firefox, and Safari.
-  */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+body::after {
+  z-index: -1;
 }
 
-/* Grouping content
-    ========================================================================== */
-
-/**
-  * 1. Add the correct box sizing in Firefox.
-  * 2. Show the overflow in Edge and IE.
-  */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+button,
+a {
+  font: inherit;
 }
-
-/**
-  * 1. Correct the inheritance and scaling of font size in all browsers.
-  * 2. Correct the odd `em` font sizing in all browsers.
-  */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/* Text-level semantics
-    ========================================================================== */
-
-/**
-  * Remove the gray background on active links in IE 10.
-  */
 
 a {
-  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
 }
 
-/**
-  * 1. Remove the bottom border in Chrome 57-
-  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-  */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-
-/**
-  * Add the correct font weight in Chrome, Edge, and Safari.
-  */
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
-  * 1. Correct the inheritance and scaling of font size in all browsers.
-  * 2. Correct the odd `em` font sizing in all browsers.
-  */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
-  * Add the correct font size in all browsers.
-  */
-
-small {
-  font-size: 80%;
-}
-
-/**
-  * Prevent `sub` and `sup` elements from affecting the line height in
-  * all browsers.
-  */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-    ========================================================================== */
-
-/**
-  * Remove the border on images inside links in IE 10.
-  */
-
-img {
-  border-style: none;
-}
-
-/* Forms
-    ========================================================================== */
-
-/**
-  * 1. Change the font styles in all browsers.
-  * 2. Remove the margin in Firefox and Safari.
-  */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
-  * Show the overflow in IE.
-  * 1. Show the overflow in Edge.
-  */
-
-button,
-input { /* 1 */
-  overflow: visible;
-}
-
-/**
-  * Remove the inheritance of text transform in Edge, Firefox, and IE.
-  * 1. Remove the inheritance of text transform in Firefox.
-  */
-
-button,
-select { /* 1 */
-  text-transform: none;
-}
-
-/**
-  * Correct the inability to style clickable types in iOS and Safari.
-  */
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-/**
-  * Remove the inner border and padding in Firefox.
-  */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
-  * Restore the focus styles unset by the previous rule.
-  */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
-  * Correct the padding in Firefox.
-  */
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
-  * 1. Correct the text wrapping in Edge and IE.
-  * 2. Correct the color inheritance from `fieldset` elements in IE.
-  * 3. Remove the padding so developers are not caught out when they zero out
-  *    `fieldset` elements in all browsers.
-  */
-
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-
-/**
-  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
-  */
-
-progress {
-  vertical-align: baseline;
-}
-
-/**
-  * Remove the default vertical scrollbar in IE 10+.
-  */
-
-textarea {
-  overflow: auto;
-}
-
-/**
-  * 1. Add the correct box sizing in IE 10.
-  * 2. Remove the padding in IE 10.
-  */
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-/**
-  * Correct the cursor style of increment and decrement buttons in Chrome.
-  */
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
-  * 1. Correct the odd appearance in Chrome and Safari.
-  * 2. Correct the outline style in Safari.
-  */
-
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
-  * Remove the inner padding in Chrome and Safari on macOS.
-  */
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
-  * 1. Correct the inability to style clickable types in iOS and Safari.
-  * 2. Change font properties to `inherit` in Safari.
-  */
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/* Interactive
-    ========================================================================== */
-
-/*
-  * Add the correct display in Edge, IE 10+, and Firefox.
-  */
-
-details {
+img,
+picture {
   display: block;
+  max-width: 100%;
 }
 
-/*
-  * Add the correct display in all browsers.
-  */
-
-summary {
-  display: list-item;
+::selection {
+  background: var(--coral);
+  color: #030407;
 }
 
-/* Misc
-    ========================================================================== */
-
-/**
-  * Add the correct display in IE 10+.
-  */
-
-template {
-  display: none;
-}
-  
-/**
-  * Add the correct display in IE 10.
-  */
-  
-[hidden] {
-  display: none;
+:focus-visible {
+  outline: 1px solid var(--coral);
+  outline-offset: 0.35rem;
 }
 
-/* normalize.css end */
-
-@font-face {
-  font-family: "SpaceMono";
-  src: url(../fonts/spacemono/SpaceMono-Regular.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: auto;
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  transform: translateY(-180%);
+  border: 1px solid var(--line-strong);
+  background: var(--night);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-@font-face {
-  font-family: Lato;
-  src: url(../fonts/lato/Lato-Regular.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: auto;
-} 
-
-@media screen and (min-width: 0px) {
-  :root {
-      --fs-main: 18px;
-      --lh-main: 21.6px;
-      --main-padding: 0 1em;
-      --fs-post: 16px;
-      --lh-post: 24px;
-  }
-
-  .theme-toggle {
-    float: right;
-  }
-
-  .sort-by {
-    padding-bottom: 1em;
-  }
-
-  a, .about, .list-category, .sort-by {
-    display: block;
-  }
-
-  .about-div {
-    padding-bottom: 1.35em !important;
-  }
+.skip-link:focus {
+  transform: translateY(0);
 }
 
-@media screen and (min-width: 1050px) {
-  :root {
-      --fs-main: 24px;
-      --lh-main: 28.8px;
-      --main-padding: 0 1.25em;
-      --fs-post: 16px;
-      --lh-post: 24px;
-  }
-
-  .datetime {
-    float: right;
-    text-align: right;
-  } 
-
-  .theme-toggle {
-    float: none;
-  }
-
-  .sort-by {
-    padding-bottom: 0em;
-  }
-
-  a, .about, .list-category, .sort-by {
-    display: inline;
-  }
-
-  .list-category {
-    float: right;
-  }
-
-  .about-div {
-    padding-bottom: .35em !important;
-  }
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-:root, :root[data-theme="light"] {
-  --color-text: black;
-  --color-link: #8c8c8c;
-  --color-bg: white;
+.wordmark-mark {
+  color: var(--coral);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 20px rgba(255, 100, 79, 0.72);
 }
 
-:root, :root[data-theme="dark"] {
-  --color-text: #fafafa;
-  --color-link: #9b9b9b;
-  --color-bg: #1c1c1c;
+.wordmark > span:last-child,
+.index-link {
+  transition: color 180ms ease;
 }
 
-*::-webkit-scrollbar {
-  display: none;
-}
-
-* {
-  scrollbar-width: none;
-}
-
-picture,img {
-  display: block;
-  width: 100%;
-}
-
-html,body {
-  font-family: 'Space Mono', monospace;
-  font-display: auto;
-  font-size: var(--fs-main);
-  line-height: var(--lh-main);
-  color: var(--color-text);
-  background-color: var(--color-bg);
-}
-
-body {
-  font-size: 1rem !important;
-  line-height: 1.2em;
-}
-
-main {
-  position: relative;
-  margin-top: .8em !important;
-  height: calc(100% - .8em);
-  width: calc(100% - 2*var(--main-padding));
-  overflow-x: hidden;
-  overflow-y: scroll;
-  pointer-events: auto;
-  padding: var(--main-padding);
-}
-
-
-.list-item, header {
-  position: relative;
-  border-bottom: 1px solid;
-  padding-top: .2em !important;
-  padding-bottom: .35em !important;
-  opacity: 1;
-}
-
-.datetime {
-  display: grid;
+.wordmark:hover > span:last-child,
+.wordmark:focus-visible > span:last-child,
+.index-link:hover,
+.index-link:focus-visible {
+  color: var(--coral-soft);
 }
 
 .theme-toggle {
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  border: none;
-  text-align: right;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   padding: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-a, .about, .list-category, .sort-by {
-  color: var(--color-text);
-  text-decoration: none;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
   cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-a:hover, .about:hover, .list-category:hover, .sort-by:hover, .theme-toggle:hover {
-  color: var(--color-link);
+.theme-mode {
+  color: var(--paper-faint);
+  transition: color 180ms ease;
 }
 
-.list-category {
-  text-align: right;
+.theme-mode-dark {
+  color: var(--paper);
 }
 
-.about-div {
+.theme-toggle-track {
   position: relative;
-  padding-top: .2em !important;
-  opacity: 1;
+  width: 2.15rem;
+  height: 1.05rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(6, 7, 10, 0.42);
 }
 
-.about {
-  display: inline-block;
+.theme-toggle-track span {
+  position: absolute;
+  top: 0.17rem;
+  left: 0.2rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0.75rem rgba(255, 100, 79, 0.74);
+  transition: transform 200ms ease, background 200ms ease;
 }
 
-.about-text {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.05s ease-out;
+html[data-theme="light"] .theme-mode-dark {
+  color: var(--paper-faint);
 }
 
-.footer {
+html[data-theme="light"] .theme-mode-light {
+  color: var(--paper);
+}
+
+html[data-theme="light"] .theme-toggle-track {
+  background: rgba(255, 255, 255, 0.48);
+}
+
+html[data-theme="light"] .theme-toggle-track span {
+  transform: translateX(1.08rem);
+  box-shadow: 0 0 0.55rem rgba(0, 112, 120, 0.32);
+}
+
+/* Home */
+
+.home-page::before {
+  background-color: #08090d;
+  background-image: url("../img/blog-hero-v3.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  filter: saturate(0.95) contrast(1.04);
+}
+
+.home-page::after {
+  background:
+    linear-gradient(180deg, rgba(2, 3, 6, 0.08) 0, rgba(2, 3, 6, 0.04) 20vw, rgba(5, 6, 10, 0.72) 40vw, #08090d 56.3vw, #08090d 100%),
+    linear-gradient(90deg, rgba(2, 3, 6, 0.28) 0%, transparent 46%, rgba(2, 3, 6, 0.18) 100%);
+}
+
+.home-shell {
+  display: grid;
+  width: min(100%, 112rem);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vh, 3.5rem) var(--page-gutter) clamp(1.25rem, 3vh, 2.5rem);
+  grid-template-rows: auto auto auto auto;
+}
+
+.site-nav,
+.article-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
+}
+
+.site-edition {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  color: rgba(244, 239, 232, 0.7);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.edition-light {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0.75rem var(--coral), 0 0 1.8rem rgba(55, 110, 255, 0.85);
+}
+
+.home-masthead {
+  display: grid;
+  min-height: calc(34vw - clamp(3rem, 5vw, 6rem));
+  place-items: center;
+  padding: 2rem 0 1.5rem;
+  pointer-events: none;
+}
+
+.home-masthead h1 {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.48);
+  white-space: nowrap;
+}
+
+.home-grid {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 0 0 clamp(2.5rem, 6vh, 5rem);
+}
+
+.essay-index {
+  width: 100%;
+  max-width: 66rem;
+  margin-inline: auto;
+  padding: clamp(1.35rem, 2.6vw, 2.35rem);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+  background: rgba(7, 8, 12, 0.73);
+  box-shadow: 0 2rem 7rem rgba(0, 0, 0, 0.28);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
+}
+
+.essay-index-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 0 1.35rem;
+  border-bottom: 1px solid var(--line-strong);
+  color: rgba(244, 239, 232, 0.66);
+  font-family: var(--mono);
+  font-size: 0.57rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.essay-index-heading h2 {
+  margin: 0.18rem 0 0;
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: clamp(2.25rem, 4vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-transform: none;
+}
+
+.essay-kicker {
+  margin: 0;
+  color: var(--coral-soft);
+}
+
+.essay-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.essay-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.essay-list a {
+  display: grid;
+  align-items: center;
+  padding: clamp(1.3rem, 2.8vh, 1.9rem) 0;
+  grid-template-columns: 7rem minmax(0, 1fr) 1.25rem;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+  transition: background 180ms ease;
+}
+
+.essay-date {
+  display: flex;
+  align-self: start;
+  flex-direction: column;
+  gap: 0.22rem;
+  padding-top: 0.34rem;
+  color: rgba(244, 239, 232, 0.72);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.11em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.essay-date span:last-child {
+  color: var(--paper-faint);
+}
+
+.essay-copy,
+.essay-title,
+.essay-meta {
+  display: block;
+}
+
+.essay-title {
+  max-width: 31ch;
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 2.25vw, 2.3rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+  transition: color 180ms ease;
+}
+
+.essay-description {
+  max-width: 58ch;
+  margin-top: 0.55rem;
+  color: rgba(194, 192, 189, 0.74);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.essay-meta {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+  color: rgba(194, 192, 189, 0.72);
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.essay-meta span + span::before {
+  margin-right: 0.8rem;
+  color: rgba(244, 239, 232, 0.34);
+  content: "/";
+}
+
+.essay-arrow {
+  color: var(--paper-dim);
+  font-family: var(--mono);
+  font-size: 1rem;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.essay-list a:hover,
+.essay-list a:focus-visible {
+  background: linear-gradient(90deg, rgba(255, 100, 79, 0.07), transparent 68%);
+  outline: none;
+}
+
+.essay-list a:hover .essay-title,
+.essay-list a:focus-visible .essay-title,
+.essay-list a:hover .essay-arrow,
+.essay-list a:focus-visible .essay-arrow {
+  color: var(--coral-soft);
+}
+
+.essay-list a:hover .essay-arrow,
+.essay-list a:focus-visible .essay-arrow {
+  transform: translate(0.14rem, -0.14rem);
+}
+
+.home-footer {
+  display: flex;
+  max-width: 66rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 auto;
+  color: rgba(142, 145, 153, 0.76);
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Articles */
+
+.reading-page {
+  background: #0b0c10;
+}
+
+.reading-page::before {
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 50% -12rem, rgba(125, 88, 112, 0.2), transparent 40rem),
+    linear-gradient(180deg, #151419 0%, #101116 34rem, #0b0c10 100%);
+}
+
+.reading-page::after {
+  z-index: -1;
+  background-image: repeating-radial-gradient(circle at 37% 41%, rgba(255, 255, 255, 0.045) 0 0.4px, transparent 0.65px 2px);
+  background-size: 3px 3px;
+  mix-blend-mode: soft-light;
+  opacity: 0.42;
+}
+
+html[data-theme="light"] .home-page::before {
+  background-color: #ffffff;
+  filter: invert(1) saturate(0.92) contrast(0.95);
+}
+
+html[data-theme="light"] .home-page::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0, rgba(255, 255, 255, 0.04) 20vw, rgba(255, 255, 255, 0.7) 40vw, #ffffff 56.3vw, #ffffff 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent 46%, rgba(255, 255, 255, 0.08));
+}
+
+html[data-theme="light"] .home-masthead h1 {
+  color: var(--paper);
+  text-shadow: none;
+}
+
+html[data-theme="light"] .site-nav,
+html[data-theme="light"] .article-nav,
+html[data-theme="light"] .article-heading,
+html[data-theme="light"] .essay-index {
+  text-shadow: none;
+}
+
+html[data-theme="light"] .essay-index {
+  background: rgba(248, 245, 239, 0.72);
+  box-shadow: 0 2rem 7rem rgba(57, 45, 37, 0.12);
+}
+
+html[data-theme="light"] .essay-index-heading,
+html[data-theme="light"] .essay-date,
+html[data-theme="light"] .article-nav,
+html[data-theme="light"] .article-meta {
+  color: rgba(23, 24, 29, 0.68);
+}
+
+html[data-theme="light"] .essay-description,
+html[data-theme="light"] .essay-meta {
+  color: rgba(49, 50, 57, 0.72);
+}
+
+html[data-theme="light"] .essay-meta span + span::before,
+html[data-theme="light"] .article-meta span::after {
+  color: rgba(23, 24, 29, 0.3);
+}
+
+html[data-theme="light"] .reading-page {
+  background: #f2eee7;
+}
+
+html[data-theme="light"] .reading-page::before {
+  background:
+    radial-gradient(ellipse at 50% -12rem, rgba(154, 116, 139, 0.15), transparent 40rem),
+    linear-gradient(180deg, #faf7f1 0%, #f3efe8 34rem, #ece8e0 100%);
+}
+
+html[data-theme="light"] .reading-page::after {
+  background-image: repeating-radial-gradient(circle at 37% 41%, rgba(0, 0, 0, 0.045) 0 0.4px, transparent 0.65px 2px);
+  mix-blend-mode: multiply;
+}
+
+html[data-theme="light"] .article-page::before {
+  filter: invert(1);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+}
+
+html[data-theme="light"] .post {
+  color: rgba(23, 24, 29, 0.84);
+}
+
+html[data-theme="light"] .post em {
+  color: rgba(23, 24, 29, 0.9);
+}
+
+html[data-theme="light"] .post code {
+  color: var(--coral);
+}
+
+html[data-theme="light"] .wordmark-mark {
+  text-shadow: 0 0 16px rgba(0, 112, 120, 0.34);
+}
+
+html[data-theme="light"] .edition-light {
+  box-shadow: 0 0 0.75rem rgba(0, 112, 120, 0.48), 0 0 1.8rem rgba(149, 108, 0, 0.34);
+}
+
+html[data-theme="light"] .essay-list a:hover,
+html[data-theme="light"] .essay-list a:focus-visible {
+  background: linear-gradient(90deg, rgba(0, 112, 120, 0.08), transparent 68%);
+}
+
+html[data-theme="light"] .post a {
+  text-decoration-color: rgba(0, 112, 120, 0.76);
+}
+
+html[data-theme="light"] ::selection {
+  background: var(--coral);
+  color: #ffffff;
+}
+
+.article-page {
   position: relative;
-  border-top: 1px solid;
-  padding-top: .2em !important;
-  padding-bottom: .35em !important;
-  opacity: 1;
 }
 
-.license {
-  float: right;
+.article-page::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: url("../img/article-squiggles.png");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  content: "";
+  mix-blend-mode: screen;
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.article-header {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - (var(--page-gutter) * 2)), 76rem);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vh, 3rem) 0 0;
+}
+
+.article-nav {
+  color: rgba(244, 239, 232, 0.84);
+}
+
+.index-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.index-link span {
+  color: var(--coral-soft);
+  font-size: 0.8rem;
+}
+
+.article-heading {
+  width: min(100%, 46rem);
+  margin: clamp(2.5rem, 6vh, 4.25rem) auto 0;
+  padding-bottom: 1.15rem;
+  text-shadow: 0 3px 28px rgba(0, 0, 0, 0.92);
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  color: rgba(244, 239, 232, 0.65);
+  font-family: var(--mono);
+  font-size: clamp(0.54rem, 0.65vw, 0.64rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.article-meta span {
+  color: var(--coral-soft);
+}
+
+.article-meta span::after {
+  margin-left: 0.9rem;
+  color: rgba(244, 239, 232, 0.34);
+  content: "/";
+}
+
+.article-heading h1 {
+  max-width: 20ch;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.35vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.article-reading {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - (var(--page-gutter) * 2)), 46rem);
+  margin: 0 auto;
+  padding: 0.85rem 0 clamp(6rem, 11vw, 10rem);
 }
 
 .post {
-  /* font-family: Lato; */
-  font-display: auto;
-  font-size: var(--fs-post);
-  line-height: var(--lh-post);
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  max-width: 758px;
-  margin: auto;
-  margin-bottom: 2rem !important;
+  min-width: 0;
+  color: rgba(244, 239, 232, 0.85);
+  font-family: var(--sans);
+  font-size: clamp(1.04rem, 1.35vw, 1.16rem);
+  line-height: 1.78;
 }
 
-.post h1, .post h2 {
-  margin-top: 2em;
+.post > :first-child {
+  margin-top: 0;
+}
+
+.post > :last-child {
   margin-bottom: 0;
-  font-weight: 600;
-  padding-bottom: 0.3em;
-  /* border-bottom: 1px solid #eee; */
-}
-
-.post h1 {
-  font-size: 1.5em;
-}
-
-.post h2 {
-  font-size: 1.35em;
-}
-
-.post h3 {
-  font-size: 1em;
-  margin-top: 1.5em;
-  margin-bottom: 0.25em;
-  font-weight: 600;
 }
 
 .post p {
-  margin-block-start: 0em;
-  margin-block-end: 1em;
+  margin: 0 0 1.6rem;
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4 {
+  color: var(--paper);
+  font-family: var(--display);
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.post h1,
+.post h2 {
+  margin: 4.5rem 0 1.25rem;
+  font-size: clamp(2rem, 3.6vw, 3.15rem);
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.post h3 {
+  margin: 3.4rem 0 1rem;
+  color: var(--coral-soft);
+  font-size: clamp(1.5rem, 2.3vw, 1.95rem);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+.post h4 {
+  margin: 2.8rem 0 0.9rem;
+  font-size: 1.25rem;
+}
+
+.post strong {
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.post em {
+  color: rgba(244, 239, 232, 0.92);
+}
+
+.post ul,
+.post ol {
+  margin: 0 0 2rem;
+  padding-left: 1.35rem;
+}
+
+.post li {
+  margin-bottom: 0.65rem;
+  padding-left: 0.3rem;
+}
+
+.post li::marker {
+  color: var(--coral-soft);
 }
 
 .post a {
+  color: var(--blue);
   text-decoration: underline;
+  text-decoration-color: rgba(255, 100, 79, 0.82);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.24em;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
-.post-date {
-  margin-bottom: 1em;
+.post a:hover,
+.post a:focus-visible {
+  color: var(--coral-soft);
+  text-decoration-color: var(--coral-soft);
+}
+
+.post blockquote {
+  margin: 3rem 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  border-left: 1px solid var(--coral);
+  color: var(--paper-dim);
+  font-family: var(--display);
+  font-size: 1.2em;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.post img {
+  width: min(62rem, calc(100vw - (var(--page-gutter) * 2)));
+  max-width: none;
+  height: auto;
+  margin: 3.25rem 50%;
+  transform: translateX(-50%);
+  border: 1px solid var(--line);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.32);
+}
+
+.post pre,
+.post code {
+  font-family: var(--mono);
+}
+
+.post code {
+  color: #ff9c8e;
+  font-size: 0.84em;
+}
+
+.post pre {
+  overflow-x: auto;
+  margin: 2.5rem 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--paper-dim);
+  font-size: 0.78em;
+  line-height: 1.65;
+}
+
+.post pre code {
+  color: inherit;
+}
+
+.post hr {
+  height: 1px;
+  margin: 4rem 0;
+  border: 0;
+  background: var(--line);
+}
+
+.post table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin: 2.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.post th,
+.post td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.post th {
+  color: var(--coral-soft);
+  font-family: var(--mono);
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.post mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.4rem 0;
+}
+
+.reading-footer {
+  position: relative;
+  background: transparent;
+}
+
+.reading-footer > div {
+  display: flex;
+  width: min(calc(100% - (var(--page-gutter) * 2)), 76rem);
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--line);
+  color: var(--paper-faint);
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reading-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: color 180ms ease;
+}
+
+.reading-footer a span {
+  color: var(--coral-soft);
+  font-size: 0.9rem;
+}
+
+.reading-footer a:hover,
+.reading-footer a:focus-visible {
+  color: var(--coral-soft);
+}
+
+@media (max-width: 960px) {
+  .home-shell {
+    min-height: 100svh;
+  }
+
+  .home-grid {
+    align-items: flex-end;
+    padding: 0 0 3.5rem;
+  }
+
+  .essay-index {
+    max-width: 58rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-gutter: 1.25rem;
+  }
+
+  .home-shell,
+  .article-header {
+    padding-top: 1.25rem;
+  }
+
+  .wordmark {
+    gap: 0.55rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .site-edition {
+    gap: 0.45rem;
+    font-size: 0.48rem;
+    letter-spacing: 0.09em;
+  }
+
+  .site-edition > span:nth-child(n + 3) {
+    display: none;
+  }
+
+  .home-grid {
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .home-masthead {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .home-masthead h1 {
+    font-size: clamp(1.55rem, 6.8vw, 2.5rem);
+  }
+
+  .essay-index {
+    padding: 1.15rem;
+  }
+
+  .essay-index-heading {
+    gap: 1rem;
+    font-size: 0.52rem;
+  }
+
+  .essay-index-heading h2 {
+    font-size: clamp(2.15rem, 11vw, 2.8rem);
+  }
+
+  .essay-list a {
+    padding: 1.35rem 0;
+    grid-template-columns: minmax(0, 1fr) 1rem;
+    gap: 0.85rem;
+  }
+
+  .essay-date {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: row;
+    gap: 0.55rem;
+    padding-top: 0;
+    font-size: 0.5rem;
+  }
+
+  .essay-copy {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .essay-arrow {
+    align-self: center;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .essay-title {
+    font-size: clamp(1.4rem, 6.8vw, 1.8rem);
+  }
+
+  .essay-description {
+    font-size: 0.8rem;
+  }
+
+  .essay-meta {
+    font-size: 0.48rem;
+  }
+
+  .home-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .index-link {
+    font-size: 0.5rem;
+  }
+
+  .article-page::before {
+    display: none;
+  }
+
+  .article-heading {
+    margin-top: 2.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .article-meta {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.51rem;
+  }
+
+  .article-meta span::after {
+    display: inline;
+    margin-left: 0.6rem;
+  }
+
+  .article-heading h1 {
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  .article-reading {
+    width: calc(100% - (var(--page-gutter) * 2));
+    padding: 1rem 0 6rem;
+  }
+
+  .post {
+    font-size: 1.03rem;
+    line-height: 1.72;
+  }
+
+  .post h1,
+  .post h2 {
+    margin-top: 3.7rem;
+  }
+
+  .post h3 {
+    margin-top: 3rem;
+  }
+
+  .post img {
+    width: calc(100vw - (var(--page-gutter) * 2));
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .reading-footer > div {
+    width: calc(100% - (var(--page-gutter) * 2));
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 961px) and (max-height: 760px) {
+  .home-shell {
+    padding-top: 1.35rem;
+    padding-bottom: 1.1rem;
+  }
+
+  .home-grid {
+    padding: 0 0 1.5rem;
+  }
+
+  .essay-list a {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .essay-title {
+    font-size: clamp(1.35rem, 1.8vw, 1.9rem);
+  }
+
+  .essay-meta {
+    margin-top: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

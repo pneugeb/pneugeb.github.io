@@ -1,15 +1,28 @@
 ---
 layout: default
 ---
-<div class="post">
-  <h1>{{ page.title }}</h1>
-  <p class="post-date">{{ page.date | date_to_string }}</p>
-  {{ content }}
-</div>
+<article class="article-page">
+  <header class="article-header">
+    <nav class="article-nav" aria-label="Article navigation">
+      <a class="wordmark" href="{{ '/' | relative_url }}">
+        <span class="wordmark-mark" aria-hidden="true">PN</span>
+        <span>Peter Neugebauer</span>
+      </a>
+      {% include theme-toggle.html %}
+    </nav>
 
-<script type="text/javascript"  >
-    document.querySelectorAll('.post a')
-      .forEach(function(elem) {
-        elem.setAttribute('target', '_blank');
-      })
-</script>
+    <div class="article-heading">
+      <div class="article-meta">
+        <span>{{ page.category }}</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      </div>
+      <h1>{{ page.title }}</h1>
+    </div>
+  </header>
+
+  <section class="article-reading" id="article-text" aria-label="Article">
+    <div class="post">
+      {{ content }}
+    </div>
+  </section>
+</article>

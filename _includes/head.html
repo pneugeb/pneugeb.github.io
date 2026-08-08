@@ -1,30 +1,42 @@
 <meta charset="utf-8">
-<title>{{ site.description }}</title>
-<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
-{% if site.owner.twitter %}<!-- Twitter Card and Open Graph tags -->
-<meta name="twitter:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
-<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta name="twitter:creator" content="@{{ site.owner.twitter }}">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image:src" content="{% if page.image.thumb %}{{ site.url }}/images/{{ page.image.thumb }}{% else %}{{ site.url }}/images/{{ site.logo }}{% endif %}">{% endif %}
-<meta property="og:type" content="article">
-<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:site_name" content="{{ site.title }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Webmaster Tools verfication -->
+<script>
+  (function () {
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem("pn-theme") === "light" ? "light" : "dark";
+    } catch (error) {
+      document.documentElement.dataset.theme = "dark";
+    }
+  }());
+</script>
+
+{% capture page_title %}{% if page.title and page.title != 'Home' %}{{ page.title }} — {% endif %}Peter Neugebauer{% endcapture %}
+{% capture page_description %}{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+{% assign share_image = '/img/blog-hero-v3.png' %}
+
+<title>{{ page_title | strip_html | strip_newlines }}</title>
+<meta name="description" content="{{ page_description | strip_html | strip_newlines | escape }}">
+<meta name="author" content="Peter Neugebauer">
+<meta name="theme-color" content="#06070a">
+
+<meta property="og:type" content="{% if page.title == 'Home' %}website{% else %}article{% endif %}">
+<meta property="og:title" content="{{ page_title | strip_html | strip_newlines | escape }}">
+<meta property="og:description" content="{{ page_description | strip_html | strip_newlines | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="Peter Neugebauer">
+<meta property="og:image" content="{{ share_image | absolute_url }}">
+<meta property="og:image:width" content="1672">
+<meta property="og:image:height" content="941">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | strip_html | strip_newlines | escape }}">
+<meta name="twitter:description" content="{{ page_description | strip_html | strip_newlines | escape }}">
+<meta name="twitter:image" content="{{ share_image | absolute_url }}">
+
+{% if page.tags and page.tags != empty %}<meta name="keywords" content="{{ page.tags | join: ', ' | escape }}">{% endif %}
 {% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
 {% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
 
-{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
-<link rel="canonical" href="{{ canonical }}">
-
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<link href="{{ '/fonts/spacemono/SpaceMono-Regular.ttf' | relative_url }}" rel="stylesheet" />
-<link href="{{ '/fonts/lato/Lato-Regular.ttf' | relative_url }}" rel="stylesheet" />
-
-<link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}" type="text/css" />
+<link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+<link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">

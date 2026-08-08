@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   {% include head.html %}
+  {% unless page.title == 'Home' %}
   <script>
     window.MathJax = {
       tex: {
@@ -19,16 +20,17 @@
       }
     };
   </script>
+  {% endunless %}
 </head>
-<body>
-  <main>
-    {% include header.html %}
+<body class="{% if page.title == 'Home' %}home-page{% else %}reading-page{% endif %}">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <main id="content">
     {{ content }}
-    {% include footer.html %}
   </main>
-  <script src="/js/main.js"></script>
-  <script type="text/javascript" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+  {% unless page.title == 'Home' %}{% include footer.html %}{% endunless %}
+  {% unless page.title == 'Home' %}
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endunless %}
+  <script src="{{ '/js/theme.js' | relative_url }}"></script>
 </body>
 </html>
