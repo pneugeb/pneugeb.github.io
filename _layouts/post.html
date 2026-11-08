@@ -5,16 +5,17 @@ layout: default
   <header class="article-header">
     <nav class="article-nav" aria-label="Article navigation">
       <a class="wordmark" href="{{ '/' | relative_url }}">
-        <span class="wordmark-mark" aria-hidden="true">PN</span>
-        <span>Peter Neugebauer</span>
+        Peter Neugebauer
       </a>
-      {% include theme-toggle.html %}
+      <div class="nav-actions"><a class="index-link" href="{{ '/' | relative_url }}#writing">All writing <span aria-hidden="true">↗</span></a>{% include theme-toggle.html %}</div>
     </nav>
 
     <div class="article-heading">
       <div class="article-meta">
         <span>{{ page.category }}</span>
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        {% assign words = content | strip_html | number_of_words %}
+        <span class="reading-time">{{ words | plus: 199 | divided_by: 200 | at_least: 1 }} min read</span>
       </div>
       <h1>{{ page.title }}</h1>
     </div>

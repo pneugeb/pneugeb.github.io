@@ -1,59 +1,120 @@
 ---
 layout: default
 title: Home
-description: "Personal blog by Peter Neugebauer."
+description: "Notes on technology, crypto, and the systems we build. A personal blog by Peter Neugebauer."
 ---
 
-<section class="home-shell" aria-label="Peter Neugebauer's Blog">
+<div class="sky-shell">
+<div class="home-shell">
   <header class="site-nav">
     <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="Peter Neugebauer, home">
-      <span class="wordmark-mark" aria-hidden="true">PN</span>
-      <span>Peter Neugebauer</span>
+      Peter Neugebauer
     </a>
-
-    {% include theme-toggle.html %}
+    <nav class="nav-actions" aria-label="Main navigation">
+      <a class="index-link" href="#writing">Writing <span aria-hidden="true">↗</span></a>
+      {% include theme-toggle.html %}
+    </nav>
   </header>
+</div>
 
-  <div class="home-masthead">
-    <h1>Peter Neugebauer&rsquo;s Blog</h1>
+<div class="observatory-stage">
+  <div class="planet-art" aria-hidden="true">
+    <div class="planet-fallback"></div>
+    <canvas id="planet-canvas"></canvas>
   </div>
+<div class="home-shell">
+  <section class="observatory" aria-labelledby="intro-title">
+    <div class="observatory-topline" aria-hidden="true">
+      <span><span class="signal-dot"></span> Personal blog</span>
+      <span>Writing since 2021</span>
+    </div>
 
-  <div class="home-grid">
-    <section class="essay-index" aria-labelledby="writing-title">
-      <header class="essay-index-heading">
-        <div>
-          <p class="essay-kicker">Personal archive</p>
-          <h2 id="writing-title">Writing</h2>
-        </div>
-        <span>2021&ndash;now</span>
-      </header>
+    <div class="hero-copy">
+      <h1 id="intro-title"><span>Peter</span><span>Neugebauers</span><span>website</span></h1>
+      <p class="hero-description">Notes on technology, crypto,<br class="desktop-break"> and the systems we build.</p>
+      <a class="hero-link" href="#writing">Explore the writing <span aria-hidden="true">↓</span></a>
+    </div>
 
-      <ol class="essay-list">
-        {% for post in site.posts %}
-          <li>
-            <a href="{{ post.url | relative_url }}">
-              <time class="essay-date" datetime="{{ post.date | date_to_xmlschema }}">
-                <span>{{ post.date | date: "%b %d" }}</span>
-                <span>{{ post.date | date: "%Y" }}</span>
-              </time>
-              <span class="essay-copy">
-                <span class="essay-title">{{ post.title }}</span>
-                {% if post.description %}<span class="essay-description">{{ post.description }}</span>{% endif %}
-                <span class="essay-meta">
-                  <span>{{ post.category }}</span>
-                  <span>Essay</span>
-                </span>
-              </span>
-              <span class="essay-arrow" aria-hidden="true">&nearr;</span>
-            </a>
-          </li>
+    <div class="planet-reticle" aria-hidden="true"><span>+</span><span>One Earth.<br>Other possibilities.</span></div>
+
+    <div class="observatory-bottomline">
+      <div class="category-filter" role="group" aria-label="Filter writing by category" hidden>
+        <span class="category-filter-label">Explore by topic /</span>
+        <button class="category-button is-active" type="button" data-category="" aria-pressed="true" aria-controls="essay-list">All writing <span>{{ site.posts.size }}</span></button>
+        {% assign sorted_categories = site.categories | sort %}
+        {% for category in sorted_categories %}
+        <button class="category-button" type="button" data-category="{{ category[0] | escape }}" aria-pressed="false" aria-controls="essay-list">{{ category[0] | escape }} <span>{{ category[1].size }}</span></button>
         {% endfor %}
-      </ol>
-    </section>
+      </div>
+      <div class="orbit-controls">
+        <button class="motion-toggle" type="button" aria-label="Pause animation" aria-pressed="false" hidden><span class="motion-symbol" aria-hidden="true">Ⅱ</span></button>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</div>
+<div class="home-shell">
+
+  <section class="essay-index" id="writing" aria-labelledby="writing-title">
+    <header class="essay-index-heading">
+      <div><p class="eyebrow">Ideas, sent into the void</p><h2 id="writing-title">The writing<span>.</span></h2></div>
+      <span class="archive-count"><span><span id="entry-count">{% if site.posts.size < 10 %}0{% endif %}{{ site.posts.size }}</span> entries</span><span aria-hidden="true">↙</span></span>
+    </header>
+
+    <p class="sr-only" id="filter-status" role="status" aria-atomic="true"></p>
+    <ol class="essay-list" id="essay-list">
+      {% for post in site.posts %}
+      {% assign words = post.content | strip_html | number_of_words %}
+      {% assign reading_minutes = words | plus: 199 | divided_by: 200 | at_least: 1 %}
+      <li data-categories="{{ post.categories | jsonify | escape }}">
+        <a href="{{ post.url | relative_url }}">
+          <span class="essay-number" aria-hidden="true">{% if forloop.rindex < 10 %}0{% endif %}{{ forloop.rindex }}</span>
+          <span class="essay-copy">
+            <span class="essay-meta"><span>{{ post.categories | join: ' · ' | escape }}</span><span>{{ reading_minutes }} min read</span></span>
+            <span class="essay-title">{{ post.title }}</span>
+            {% if post.description %}<span class="essay-description">{{ post.description }}</span>{% endif %}
+          </span>
+          <time class="essay-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+          <span class="essay-arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+</div>
+
+<footer class="home-footer" aria-label="A little outpost on the planet">
+  <div class="surface-art" aria-hidden="true"><canvas id="horizon-canvas"></canvas></div>
+
+  <div class="surface-billboard">
+    <div class="billboard-face"><span>© {{ site.time | date: '%Y' }}</span><span>Peter Neugebauer</span></div>
+    <div class="billboard-legs" aria-hidden="true"><span></span><span></span></div>
   </div>
 
-  <footer class="home-footer">
-    <span>&copy; {{ site.time | date: '%Y' }} Peter Neugebauer</span>
-    <span>2021&ndash;now</span>
-  </footer>
-</section>
+  <svg class="surface-observatory" viewBox="0 0 40 31" aria-hidden="true" shape-rendering="crispEdges">
+    <path fill="#354e6a" d="M4 20h32v11H4z"/>
+    <path fill="#8faec8" d="M9 12h22v3H9zM6 15h28v8H6z"/>
+    <path fill="#c1dceb" d="M13 9h14v3H13zM9 12h7v3H9zM6 15h7v5H6z"/>
+    <path fill="#172b43" d="M19 10h3v13h-3zM16 25h8v6h-8z"/>
+    <path fill="#adc9df" d="M32 6h2v14h-2zM31 6h4v2h-4z"/>
+    <path class="outpost-beacon" fill="#ffc88d" d="M31 2h4v4h-4z"/>
+  </svg>
+
+  <a class="launch-control" href="#content" aria-label="Back to orbit — return to the top">
+    <span class="launch-sign">Back to orbit <span aria-hidden="true">↑</span></span>
+    <svg class="launch-rocket" viewBox="0 0 32 67" aria-hidden="true" shape-rendering="crispEdges">
+      <path class="rocket-flame" fill="#eaa474" d="M11 47h10v10H11zM13 57h6v6h-6zM15 63h2v4h-2z"/>
+      <path class="rocket-flame-core" fill="#ffe7ad" d="M14 47h4v12h-4z"/>
+      <path fill="#eaa474" d="M14 1h4v4h-4zM11 5h10v6H11zM8 11h16v6H8z"/>
+      <path fill="#dfebf4" d="M8 17h16v27H8zM11 44h10v4H11z"/>
+      <path fill="#9bb5cb" d="M21 17h3v27h-3zM8 40h3v4H8z"/>
+      <path fill="#213c5a" d="M11 21h10v12H11z"/>
+      <path fill="#9bd8ed" d="M13 23h6v7h-6z"/>
+      <path fill="#587590" d="M4 34h4v14H4zM1 40h3v10H1zM24 34h4v14h-4zM28 40h3v10h-3z"/>
+      <path fill="#22344c" d="M11 48h10v3H11z"/>
+    </svg>
+  </a>
+</footer>

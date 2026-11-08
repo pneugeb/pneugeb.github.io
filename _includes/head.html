@@ -13,12 +13,12 @@
 
 {% capture page_title %}{% if page.title and page.title != 'Home' %}{{ page.title }} — {% endif %}Peter Neugebauer{% endcapture %}
 {% capture page_description %}{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
-{% assign share_image = '/img/blog-hero-v3.png' %}
+{% assign share_image = '/img/space-atlas.png' %}
 
 <title>{{ page_title | strip_html | strip_newlines }}</title>
 <meta name="description" content="{{ page_description | strip_html | strip_newlines | escape }}">
 <meta name="author" content="Peter Neugebauer">
-<meta name="theme-color" content="#06070a">
+<meta name="theme-color" content="#0b0d12">
 
 <meta property="og:type" content="{% if page.title == 'Home' %}website{% else %}article{% endif %}">
 <meta property="og:title" content="{{ page_title | strip_html | strip_newlines | escape }}">
@@ -26,17 +26,20 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:site_name" content="Peter Neugebauer">
 <meta property="og:image" content="{{ share_image | absolute_url }}">
-<meta property="og:image:width" content="1672">
-<meta property="og:image:height" content="941">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Peter Neugebauer's personal blog, with a blue and green pixel Earth.">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ page_title | strip_html | strip_newlines | escape }}">
 <meta name="twitter:description" content="{{ page_description | strip_html | strip_newlines | escape }}">
 <meta name="twitter:image" content="{{ share_image | absolute_url }}">
+<meta name="twitter:image:alt" content="Peter Neugebauer's personal blog, with a blue and green pixel Earth.">
 
 {% if page.tags and page.tags != empty %}<meta name="keywords" content="{{ page.tags | join: ', ' | escape }}">{% endif %}
 {% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
 {% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
 
 <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+<link rel="icon" href="{{ '/img/planet-icon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">

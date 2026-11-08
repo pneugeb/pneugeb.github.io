@@ -8,7 +8,7 @@
     root.dataset.theme = isLight ? "light" : "dark";
 
     if (themeColor) {
-      themeColor.setAttribute("content", isLight ? "#f2eee7" : "#06070a");
+      themeColor.setAttribute("content", isLight && !document.querySelector(".sky-shell") ? "#f3f1ec" : "#0b0d12");
     }
 
     toggles.forEach(function (toggle) {
